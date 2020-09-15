@@ -1,0 +1,6 @@
+/* CSS-fil 2 */
+body{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
