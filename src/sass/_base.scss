@@ -1,0 +1,30 @@
+$main_bg_color: #4D5382;
+$nav_bg_color:darken($main_bg_color, 20);
+$nav_link_color: #EDF5E1;
+$heading_color: #d5e039;
+$p_fontsize: 18px;
+
+
+.highlight{
+    color: saturate($heading_color, 20);
+}
+.highlight-stronger{
+    @extend .highlight;
+    font-weight: bolder;
+}
+@mixin articles {
+    max-width: 80%;
+    margin: auto;
+    img{
+        width: 100%;
+        max-height: 200px;
+        object-fit: cover;
+    }
+}
+@mixin mobile {
+    @media screen and (max-width: 768px) { @content; }
+}
+@mixin desktop {
+    @media screen and (min-width: 768px) {@content;}
+}
+
