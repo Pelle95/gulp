@@ -5,12 +5,11 @@ const concat = require("gulp-concat");
 const terser = require("gulp-terser");
 // Paket för att minifiera CSS
 const cleanCSS = require("gulp-clean-css");
-
-
-
-
 // Paket för livereload
 const browserSync = require("browser-sync").create();
+// Paket för Babel
+const babel = require("gulp-babel");
+
 
 // SASS
 const sass = require('gulp-sass'); 
@@ -76,6 +75,7 @@ function cssTask() {
 // Sammanslår och minifierar JS-filer, kallar även på en livereload efter kodförändringar är färdiga
 function jsTask() {
     return src(files.jsPath)
+        .pipe(babel())
         .pipe(concat('main.js'))
         .pipe(terser())
         .pipe(dest('pub/js'))
